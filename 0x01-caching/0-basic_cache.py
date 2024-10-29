@@ -9,6 +9,7 @@ class BasicCache(BaseCaching):
     """
     Inherits from BaseCaching and is a caching system
     """
+
     def __init__(self):
         """Initializer. """
         super().__init__()
