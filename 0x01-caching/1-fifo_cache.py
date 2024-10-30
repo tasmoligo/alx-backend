@@ -22,12 +22,13 @@ class FIFOCache(BaseCaching):
         """
         if key is None or item is None:
             pass
-        if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
-                and key not in self.cache_data.keys():
-            toBeDeleted = next(iter(self.cache_data.keys()))
-            del self.cache_data[toBeDeleted]
-            print('DISCARD: {}'.format(toBeDeleted))
-        self.cache_data[key] = item
+        else:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
+                    and key not in self.cache_data.keys():
+                toBeDeleted = next(iter(self.cache_data.keys()))
+                del self.cache_data[toBeDeleted]
+                print('DISCARD: {}'.format(toBeDeleted))
+            self.cache_data[key] = item
 
     def get(self, key):
         """
